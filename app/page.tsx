@@ -80,6 +80,19 @@ const handleSubmit = (e: React.FormEvent) => {
   priority
   className="rounded-2xl mx-auto"
 />
+<div className="mt-6 flex flex-wrap justify-center gap-4">
+  <span className="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full">
+    🎯 Air Rifle
+  </span>
+
+  <span className="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full">
+    🔫 Air Pistol
+  </span>
+
+  <span className="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full">
+    🏆 District Level
+  </span>
+</div>
       <section
         id="home"
         className="flex flex-col items-center justify-center text-center py-16 px-6"
@@ -163,60 +176,60 @@ const handleSubmit = (e: React.FormEvent) => {
       </section>
 
       {/* Events */}
-      <section
-        id="events"
-        className="py-16 px-8 bg-slate-900"
-      >
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Competition Events
-        </h2>
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+  {[
+    "10m Air Rifle Men",
+    "10m Air Rifle Women",
+    "10m Air Pistol Men",
+    "10m Air Pistol Women",
+  ].map((event) => (
+    <div
+      key={event}
+      className="group relative overflow-hidden rounded-3xl bg-slate-800 border border-slate-700 hover:border-yellow-400 transition-all duration-500 hover:scale-105"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
 
-          <div className="bg-slate-800 p-8 rounded-2xl hover:scale-105 hover:border-yellow-400 border border-transparent transition duration-300">
-            <h3 className="text-2xl font-bold text-yellow-400">
-              10m Air Rifle Men
-            </h3>
-            <p className="text-gray-400 mt-4">
-              District level individual championship.
-            </p>
-          </div>
+      <div className="p-8 relative z-10">
+        <span className="inline-block px-3 py-1 text-xs rounded-full bg-yellow-500/20 text-yellow-400 mb-4">
+          SHOOTING EVENT
+        </span>
 
-          <div className="bg-slate-800 p-8 rounded-2xl hover:scale-105 hover:border-yellow-400 border border-transparent transition duration-300">
-            <h3 className="text-2xl font-bold text-yellow-400">
-              10m Air Rifle Women
-            </h3>
-            <p className="text-gray-400 mt-4">
-              District level individual championship.
-            </p>
-          </div>
+        <h3 className="text-3xl font-bold text-white mb-3">
+          {event}
+        </h3>
 
-          <div className="bg-slate-800 p-8 rounded-2xl hover:scale-105 hover:border-yellow-400 border border-transparent transition duration-300">
-            <h3 className="text-2xl font-bold text-yellow-400">
-              10m Air Pistol Men
-            </h3>
-            <p className="text-gray-400 mt-4">
-              District level individual championship.
-            </p>
-          </div>
+        <p className="text-gray-400 mb-6">
+          District Level Championship Event
+        </p>
 
-          <div className="bg-slate-800 p-8 rounded-2xl hover:scale-105 hover:border-yellow-400 border border-transparent transition duration-300">
-            <h3 className="text-2xl font-bold text-yellow-400">
-              10m Air Pistol Women
-            </h3>
-            <p className="text-gray-400 mt-4">
-              District level individual championship.
-            </p>
-          </div>
-
+        <div className="space-y-2 text-sm text-gray-300">
+          <p>📅 15 July 2026</p>
+          <p>📍 MSEC Air Rifle Range</p>
+          <p>⏰ 8:00 AM</p>
         </div>
-       <div className="text-center mt-10 text-gray-300 space-y-2">
-  <p>📅 Date: 15 July 2026</p>
-  <p>📍 Venue: MSEC Air Rifle Range</p>
-  <p>⏰ Reporting Time: 8:00 AM</p>
-  <p>💰 Entry Fee: ₹700 per participant</p>
+
+        <button
+          onClick={() => {
+            setFormData({
+              ...formData,
+              event: event,
+            });
+
+            document
+              .getElementById("register")
+              ?.scrollIntoView({
+                behavior: "smooth",
+              });
+          }}
+          className="mt-8 w-full bg-yellow-500 text-black py-3 rounded-xl font-bold hover:bg-yellow-400 transition"
+        >
+          Register Now →
+        </button>
+      </div>
+    </div>
+  ))}
 </div>
-      </section>
 
       {/* Registration */}
       {/* Registration */}
